@@ -26,6 +26,7 @@
         <div class="flex items-center gap-2">
             <span class="font-extrabold text-[#2c7a7b] tracking-tight text-xl">JOM TOUR</span>
         </div>
+        
         <div class="hidden md:flex gap-8 items-center font-medium text-sm text-gray-600">
             <a href="#about" class="hover:text-[#2c7a7b] transition-colors">About</a>
             <a href="#packages" class="hover:text-[#2c7a7b] transition-colors">Packages</a>
@@ -35,6 +36,26 @@
             <div class="flex gap-3 ml-2 border-l pl-5 border-gray-200">
                 <button onclick="setLang('id')" class="text-xs font-bold px-2 py-1 rounded bg-gray-100 hover:bg-[#2c7a7b] hover:text-white transition-colors">ID</button>
                 <button onclick="setLang('en')" class="text-xs font-bold px-2 py-1 rounded bg-gray-100 hover:bg-[#2c7a7b] hover:text-white transition-colors">EN</button>
+            </div>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600 hover:text-[#2c7a7b] focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+        <div class="flex flex-col px-6 py-5 space-y-4 font-medium text-base text-gray-600">
+            <a href="#about" class="mobile-link hover:text-[#2c7a7b] transition-colors">About</a>
+            <a href="#packages" class="mobile-link hover:text-[#2c7a7b] transition-colors">Packages</a>
+            <a href="#vehicles" class="mobile-link hover:text-[#2c7a7b] transition-colors">Vehicles</a>
+            <a href="#gallery" class="mobile-link hover:text-[#2c7a7b] transition-colors">Gallery</a>
+            <a href="#contact" class="mobile-link hover:text-[#2c7a7b] transition-colors">Contact</a>
+            <div class="flex gap-3 pt-4 border-t border-gray-100">
+                <button onclick="setLang('id')" class="flex-1 text-sm font-bold px-4 py-2 rounded bg-gray-100 hover:bg-[#2c7a7b] hover:text-white transition-colors">ID</button>
+                <button onclick="setLang('en')" class="flex-1 text-sm font-bold px-4 py-2 rounded bg-gray-100 hover:bg-[#2c7a7b] hover:text-white transition-colors">EN</button>
             </div>
         </div>
     </div>
@@ -49,10 +70,10 @@
 </section>
 
 <section id="about" class="py-20 max-w-4xl mx-auto px-6" data-aos="fade-up">
-    <div class="bg-white p-10 md:p-14 rounded-[3rem] shadow-xl shadow-gray-200/50 border border-gray-100 text-center relative overflow-hidden">
+    <div class="bg-white p-8 md:p-14 rounded-[2rem] md:rounded-[3rem] shadow-xl shadow-gray-200/50 border border-gray-100 text-center relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-[#2c7a7b]"></div>
         <h2 class="text-3xl font-extrabold text-gray-900 mb-6" id="aboutTitle"></h2>
-        <p id="aboutText" class="text-lg leading-relaxed text-gray-600"></p>
+        <p id="aboutText" class="text-base md:text-lg leading-relaxed text-gray-600"></p>
     </div>
 </section>
 
@@ -67,12 +88,12 @@
     </div>
 </section>
 
-<section id="vehicles" class="py-20 bg-gray-900 text-white px-4 rounded-[3rem] max-w-7xl mx-auto my-10 shadow-2xl">
+<section id="vehicles" class="py-20 bg-gray-900 text-white px-6 rounded-[2rem] md:rounded-[3rem] max-w-7xl mx-auto my-10 shadow-2xl mx-4 md:mx-auto">
     <div class="text-center mb-16">
         <span class="text-teal-400 font-bold text-sm tracking-[0.2em] uppercase">Fleet</span>
-        <h2 class="text-4xl font-black mt-2" id="vehicleTitle"></h2>
+        <h2 class="text-3xl md:text-4xl font-black mt-2" id="vehicleTitle"></h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div class="bg-gray-800 p-8 rounded-3xl text-center transition-all hover:-translate-y-2 border border-gray-700 hover:border-teal-500 group">
             <img src="assets/avanza.png" class="w-full h-32 object-contain mb-6 mx-auto group-hover:scale-105 transition-transform" alt="Avanza" onerror="this.src='https://placehold.co/300x150/1f2937/white?text=Avanza'">
             <h3 class="font-bold text-2xl text-white mb-1">Avanza / Xenia</h3>
@@ -98,47 +119,27 @@
     </div>
     
     <div class="max-w-5xl mx-auto relative group" id="gallery-container">
-        <div class="overflow-hidden rounded-[2rem] shadow-2xl h-[300px] md:h-[500px] relative bg-gray-100">
+        <div class="overflow-hidden rounded-[2rem] shadow-2xl h-[250px] sm:h-[300px] md:h-[500px] relative bg-gray-100">
             <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full">
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/10.jpeg" class="w-full h-full object-cover" alt="Gallery 1" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+1'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/2.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 2" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+2'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/3.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 3" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+3'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/4.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 4" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+4'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/5.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 5" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+5'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/6.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 6" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+6'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/7.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 7" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+7'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/1.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 8" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+8'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/8.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 9" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+9'">
-                </div>
-                <div class="w-full flex-shrink-0 relative">
-                    <img src="galeri/9.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 10" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+10'">
-                </div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/10.jpeg" class="w-full h-full object-cover" alt="Gallery 1" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+1'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/2.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 2" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+2'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/3.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 3" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+3'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/4.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 4" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+4'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/5.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 5" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+5'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/6.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 6" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+6'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/7.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 7" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+7'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/1.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 8" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+8'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/8.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 9" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+9'"></div>
+                <div class="w-full flex-shrink-0 relative"><img src="galeri/9.jpeg" loading="lazy" class="w-full h-full object-cover" alt="Gallery 10" onerror="this.src='https://placehold.co/1000x500/e2e8f0/64748b?text=Gallery+10'"></div>
             </div>
             <div class="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
         </div>
 
-        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 text-gray-800 w-12 h-12 flex items-center justify-center rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-all hover:bg-[#2c7a7b] hover:text-white z-10">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+        <button onclick="prevSlide()" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 text-gray-800 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-xl opacity-70 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-[#2c7a7b] hover:text-white z-10">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
         </button>
-        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 text-gray-800 w-12 h-12 flex items-center justify-center rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-all hover:bg-[#2c7a7b] hover:text-white z-10">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+        <button onclick="nextSlide()" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 text-gray-800 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full shadow-xl opacity-70 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-[#2c7a7b] hover:text-white z-10">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
         </button>
 
         <div id="slider-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10 overflow-x-auto max-w-[80%] px-2"></div>
@@ -202,6 +203,22 @@
 <script>
 // INISIALISASI AOS
 AOS.init({ duration: 800, once: true, offset: 50 });
+
+// LOGIKA MOBILE MENU
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+// Tutup menu saat link diklik
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+});
 
 // DATA BAHASA
 const data = {
@@ -294,7 +311,11 @@ function render(lang){
     });
 }
 
-function setLang(l){ render(l); }
+function setLang(l){ 
+    render(l); 
+    // Tutup mobile menu otomatis jika bahasa diubah lewat HP
+    document.getElementById('mobile-menu').classList.add('hidden');
+}
 render('id');
 
 // ==========================================
@@ -302,11 +323,10 @@ render('id');
 // ==========================================
 const slider = document.getElementById('slider');
 const dotsContainer = document.getElementById('slider-dots');
-const slidesCount = slider.children.length; // Otomatis baca total foto
+const slidesCount = slider.children.length; 
 let currentSlideIndex = 0;
 let slideInterval;
 
-// 1. Buat indikator titik (dots) otomatis
 for (let i = 0; i < slidesCount; i++) {
     const dot = document.createElement('button');
     dot.className = `h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-teal-400 w-6' : 'bg-white/60 hover:bg-white w-2'}`;
@@ -316,7 +336,6 @@ for (let i = 0; i < slidesCount; i++) {
 }
 const dotsArray = dotsContainer.children;
 
-// 2. Update posisi slider & gaya dots
 function updateGallerySlider() {
     slider.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
     for (let i = 0; i < slidesCount; i++) {
@@ -324,7 +343,6 @@ function updateGallerySlider() {
     }
 }
 
-// 3. Tombol navigasi
 function nextSlide() { 
     currentSlideIndex = (currentSlideIndex + 1) % slidesCount; 
     updateGallerySlider(); 
@@ -338,7 +356,6 @@ function goToSlide(index) {
     updateGallerySlider(); 
 }
 
-// 4. Auto-play & Pause saat hover
 function startGallerySlide() { 
     slideInterval = setInterval(nextSlide, 4000); 
 }
@@ -350,7 +367,6 @@ const galleryWrapper = document.getElementById('gallery-container');
 galleryWrapper.addEventListener('mouseenter', stopGallerySlide);
 galleryWrapper.addEventListener('mouseleave', startGallerySlide);
 
-// Jalankan slider
 startGallerySlide();
 
 </script>
