@@ -17,7 +17,7 @@
     <meta property="og:title" content="JOM TOUR | Bandung Premium Travel">
     <meta property="og:description" content="Curated Bandung experiences for international travelers.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:image" content="assets/logobaru.png">
     
     <script type="application/ld+json">
     {
@@ -41,12 +41,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .bg-pattern { background-image: radial-gradient(#2c7a7b 0.5px, transparent 0.5px), radial-gradient(#2c7a7b 0.5px, #ffffff 0.5px); background-size: 20px 20px; background-position: 0 0, 10px 10px; background-attachment: fixed; opacity: 0.03; }
         #slider-dots::-webkit-scrollbar { display: none; }
         #slider-dots { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Swiper Custom Theme Color */
+        .swiper-button-next, .swiper-button-prev { color: #2c7a7b !important; }
+        .swiper-pagination-bullet-active { background: #2c7a7b !important; }
     </style>
 </head>
 
@@ -94,7 +101,7 @@
 </nav>
 
 <section class="pt-40 pb-20 px-4 text-center bg-gradient-to-b from-teal-50/50 to-transparent relative">
-    <img src="assets/logo.png" class="mx-auto h-32 mb-8 drop-shadow-md" data-aos="zoom-in" alt="Logo Travel Jom Tour Bandung" onerror="this.src='https://placehold.co/150x150/2c7a7b/white?text=JOM+TOUR'">
+    <img src="assets/logobaru.png" class="mx-auto h-32 mb-8 drop-shadow-md" data-aos="zoom-in" alt="Logo Travel Jom Tour Bandung" onerror="this.src='https://placehold.co/150x150/2c7a7b/white?text=JOM+TOUR'">
     <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight" data-aos="fade-up">JOM TOUR <span class="text-[#2c7a7b]">BANDUNG</span></h1>
     <p id="heroText" class="max-w-2xl mx-auto mt-6 text-lg md:text-xl text-gray-600 leading-relaxed" data-aos="fade-up" data-aos-delay="100"></p>
     <a id="waBtn" href="#" class="mt-10 inline-flex items-center gap-2 bg-[#2c7a7b] text-white px-8 py-4 rounded-full shadow-xl shadow-teal-500/30 hover:-translate-y-1 hover:shadow-2xl hover:bg-teal-700 transition-all font-semibold text-lg" data-aos="fade-up" data-aos-delay="200">
@@ -106,6 +113,28 @@
         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-[#2c7a7b]"></div>
         <h2 class="text-3xl font-extrabold text-gray-900 mb-6" id="aboutTitle"></h2>
         <p id="aboutText" class="text-base md:text-lg leading-relaxed text-gray-600"></p>
+    </div>
+</section>
+
+<section id="promo" class="py-10 px-6 max-w-6xl mx-auto" data-aos="fade-up">
+    <div class="swiper promoSwiper rounded-[2rem] overflow-hidden shadow-xl shadow-teal-900/10 border border-gray-100 group">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide relative">
+                <a href="https://wa.me/6285320117636?text=Halo%20Jom%20Tour,%20saya%20tertarik%20dengan%20Promo%201" target="_blank" class="block w-full">
+                    <img src="/galeri/11.png" alt="Promo 1" class="w-full h-auto object-cover md:max-h-[500px]">
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
+            </div>
+            <div class="swiper-slide relative">
+                <a href="https://wa.me/6285320117636?text=Halo%20Jom%20Tour,%20saya%20tertarik%20dengan%20Promo%202" target="_blank" class="block w-full">
+                    <img src="/galeri/12.png" alt="Promo 2" class="w-full h-auto object-cover md:max-h-[500px]">
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-300"></div>
+                </a>
+            </div>
+        </div>
+        <div class="swiper-button-next invisible group-hover:visible transition-all"></div>
+        <div class="swiper-button-prev invisible group-hover:visible transition-all"></div>
+        <div class="swiper-pagination"></div>
     </div>
 </section>
 
@@ -232,9 +261,19 @@
     <p class="text-sm">© 2026 JOM Tour Bandung. All Rights Reserved.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
 // INISIALISASI AOS
 AOS.init({ duration: 800, once: true, offset: 50 });
+
+// INISIALISASI PROMO SLIDER (SWIPER)
+const promoSwiper = new Swiper(".promoSwiper", {
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+});
 
 // LOGIKA MOBILE MENU
 const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -350,7 +389,7 @@ function setLang(l){
 render('id');
 
 // ==========================================
-// SCRIPT GALLERY SLIDER TERBARU
+// SCRIPT GALLERY SLIDER (TIDAK BERUBAH)
 // ==========================================
 const slider = document.getElementById('slider');
 const dotsContainer = document.getElementById('slider-dots');
