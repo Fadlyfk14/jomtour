@@ -51,7 +51,6 @@
         #slider-dots::-webkit-scrollbar { display: none; }
         #slider-dots { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Swiper Custom Theme Color */
         .swiper-button-next, .swiper-button-prev { color: #2c7a7b !important; }
         .swiper-pagination-bullet-active { background: #2c7a7b !important; }
     </style>
@@ -70,6 +69,7 @@
             <a href="#about" class="hover:text-[#2c7a7b] transition-colors">About</a>
             <a href="#packages" class="hover:text-[#2c7a7b] transition-colors">Packages</a>
             <a href="#vehicles" class="hover:text-[#2c7a7b] transition-colors">Vehicles</a>
+            <a href="#testimonials" class="hover:text-[#2c7a7b] transition-colors">Reviews</a>
             <a href="#gallery" class="hover:text-[#2c7a7b] transition-colors">Gallery</a>
             <a href="#contact" class="hover:text-[#2c7a7b] transition-colors">Contact</a>
             <div class="flex gap-3 ml-2 border-l pl-5 border-gray-200">
@@ -90,6 +90,7 @@
             <a href="#about" class="mobile-link hover:text-[#2c7a7b] transition-colors">About</a>
             <a href="#packages" class="mobile-link hover:text-[#2c7a7b] transition-colors">Packages</a>
             <a href="#vehicles" class="mobile-link hover:text-[#2c7a7b] transition-colors">Vehicles</a>
+            <a href="#testimonials" class="mobile-link hover:text-[#2c7a7b] transition-colors">Reviews</a>
             <a href="#gallery" class="mobile-link hover:text-[#2c7a7b] transition-colors">Gallery</a>
             <a href="#contact" class="mobile-link hover:text-[#2c7a7b] transition-colors">Contact</a>
             <div class="flex gap-3 pt-4 border-t border-gray-100">
@@ -169,6 +170,17 @@
             <img src="assets/hyundai.png" class="w-full h-32 object-contain mb-6 mx-auto group-hover:scale-105 transition-transform" alt="Sewa Mobil Hyundai H1 Bandung" onerror="this.src='https://placehold.co/300x150/1f2937/white?text=Hyundai'">
             <h3 class="font-bold text-2xl text-white mb-1">Hyundai H1</h3>
             <span class="inline-block bg-teal-500/20 text-teal-400 px-3 py-1 rounded-full text-sm font-medium">Max 7 pax</span>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-[#2c7a7b] font-bold text-sm tracking-[0.2em] uppercase">Testimonials</span>
+            <h2 class="text-4xl font-black text-gray-900 mt-2" id="testimonialTitle"></h2>
+        </div>
+        <div id="testimonialContainer" class="grid grid-cols-1 md:grid-cols-3 gap-8">
         </div>
     </div>
 </section>
@@ -284,14 +296,13 @@ mobileBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
-// Tutup menu saat link diklik
 mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
     });
 });
 
-// DATA BAHASA
+// DATA BAHASA + TESTIMONIALS
 const data = {
     id:{
         hero:"Layanan tour profesional di Bandung, Jakarta, Lembang & Ciwidey",
@@ -299,6 +310,7 @@ const data = {
         about:"JOM TOUR BANDUNG adalah perusahaan travel profesional yang menyediakan layanan perjalanan wisata lengkap di Bandung, Lembang, Ciwidey, dan Jakarta. Kami berkomitmen memberikan pengalaman terbaik melalui pelayanan ramah, kendaraan nyaman, serta driver berpengalaman.",
         pkgTitle:"Paket Tour",
         vehicleTitle:"Kendaraan Tersedia",
+        testimonialTitle:"Apa Kata Mereka",
         contactTitle:"Hubungi Kami",
         waBtnText: "WhatsApp Sekarang",
         wa:"Halo saya ingin booking tour",
@@ -311,6 +323,11 @@ const data = {
             {t:"Jakarta - Bandung PP",d:"City + Shopping",p:"IDR 3.700.000",f:["Transport","Driver","BBM"]},
             {t:"Jakarta - Bandung + Airport",d:"Include airport drop",p:"IDR 5.200.000",f:["Transport","Driver","Airport"]},
             {t:"Bandung Short Trip",d:"Half day Bandung",p:"IDR 2.900.000",f:["City Tour","Shopping"]}
+        ],
+        testimonials: [
+            {n: "Siti Nurhaliza", r: "Kuala Lumpur, MY", m: "Sangat puas! Driver sangat sabar menemani kami belanja di Rumah Mode dan Braga. Mobil bersih dan wangi.", s: 5},
+            {n: "Andi Wijaya", r: "Jakarta, ID", m: "Paket 3 hari 2 malam ke Ciwidey sangat berkesan. Admin fast response dan itinerary-nya fleksibel.", s: 5},
+            {n: "John Doe", r: "Singapore", m: "Professional service for international tourists. Highly recommended for family trips in Bandung.", s: 5}
         ]
     },
     en:{
@@ -319,6 +336,7 @@ const data = {
         about:"JOM TOUR BANDUNG is a professional travel company providing comprehensive tour services in Bandung, Lembang, Ciwidey, and Jakarta. We are committed to providing the best experience through friendly service, comfortable vehicles, and experienced drivers.",
         pkgTitle:"Tour Packages",
         vehicleTitle:"Available Vehicles",
+        testimonialTitle:"What They Say",
         contactTitle:"Contact Us",
         waBtnText: "WhatsApp Now",
         wa:"Hello I want to book a tour",
@@ -331,6 +349,11 @@ const data = {
             {t:"Jakarta - Bandung Return",d:"City & Shopping",p:"IDR 3.700.000",f:["Transport","Driver","Fuel"]},
             {t:"Jakarta - Bandung + Airport",d:"Include airport drop",p:"IDR 5.200.000",f:["Transport","Driver","Airport"]},
             {t:"Bandung Short Trip",d:"Half day Bandung",p:"IDR 2.900.000",f:["City Tour","Shopping"]}
+        ],
+        testimonials: [
+            {n: "Siti Nurhaliza", r: "Kuala Lumpur, MY", m: "Very satisfied! The driver was patient while we shopped at Rumah Mode and Braga. The car was clean.", s: 5},
+            {n: "Andi Wijaya", r: "Jakarta, ID", m: "The 3-day trip to Ciwidey was memorable. Fast response admin and flexible itinerary.", s: 5},
+            {n: "John Doe", r: "Singapore", m: "Professional service for international tourists. Highly recommended for family trips in Bandung.", s: 5}
         ]
     }
 };
@@ -343,6 +366,7 @@ function render(lang){
     document.getElementById('aboutText').innerText = d.about;
     document.getElementById('pkgTitle').innerText = d.pkgTitle;
     document.getElementById('vehicleTitle').innerText = d.vehicleTitle;
+    document.getElementById('testimonialTitle').innerText = d.testimonialTitle;
     document.getElementById('contactTitle').innerText = d.contactTitle;
     
     const waBtn = document.getElementById('waBtn');
@@ -352,9 +376,9 @@ function render(lang){
     `;
     waBtn.href = `https://wa.me/6285320117636?text=${encodeURIComponent(d.wa)}`;
 
+    // RENDER PACKAGES
     const c = document.getElementById('pkgContainer');
     c.innerHTML = "";
-
     d.packages.forEach((p) => {
         c.innerHTML += `
             <div class='bg-white rounded-[2rem] shadow-lg border border-gray-100 flex flex-col h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group'>
@@ -380,6 +404,29 @@ function render(lang){
             </div>
         `;
     });
+
+    // RENDER TESTIMONIALS (Logic Baru)
+    const tContainer = document.getElementById('testimonialContainer');
+    tContainer.innerHTML = "";
+    d.testimonials.forEach((t) => {
+        tContainer.innerHTML += `
+            <div class="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col hover:shadow-2xl transition-all duration-300" data-aos="fade-up">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    ${'★'.repeat(t.s)}
+                </div>
+                <p class="text-gray-600 italic mb-8 flex-grow">"${t.m}"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-teal-50 text-[#2c7a7b] rounded-full flex items-center justify-center font-bold border border-teal-100">
+                        ${t.n.charAt(0)}
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-gray-900 text-sm">${t.n}</h4>
+                        <p class="text-xs text-gray-400 font-medium">${t.r}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
 }
 
 function setLang(l){ 
@@ -388,9 +435,7 @@ function setLang(l){
 }
 render('id');
 
-// ==========================================
-// SCRIPT GALLERY SLIDER (TIDAK BERUBAH)
-// ==========================================
+// SCRIPT GALLERY SLIDER
 const slider = document.getElementById('slider');
 const dotsContainer = document.getElementById('slider-dots');
 const slidesCount = slider.children.length; 
